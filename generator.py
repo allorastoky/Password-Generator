@@ -27,7 +27,7 @@ if choice==1:
     while x<numbercharacter:
         x+=1
         element=random.choice(letters)
-        password.join(element)
+        password+=str(element)
 
 print(password)
 pyperclip.copy(password)
