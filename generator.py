@@ -3,7 +3,7 @@ import random
 password=""
 x=0
 menu= "1. Generate a password\n2. View password already generated\n3. Quit"
-passwordused=[]
+passwordused=open("used_password.txt").readlines()
 letters =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",]
 numbers=["1","2","3","4","5","6","7","8","9","0"]
 symbols=["|", "!", "£", "$", "%", "&", "/", "(", ")", "=", "?", "^", "'", "[", "]", "{", "}", "*", "+", "@", "°", "#", "§", "-", "_", ".", ":", "·", "•", ",", ";", "<", ">"]
@@ -11,10 +11,11 @@ menugenerator="You can choose:\n1. A password with just letter (CAPITAL and lowe
 possiblechoices= ["1", "2", "3"]
 choice=""
 choicemenu=""
-while choice not in possiblechoices:
-  print(menu)
-  choicemenu= input("What do you need. Type 1, 2, OR 3: ")
-  print("\n")
+while choicemenu != 3:
+  while choicemenu not in possiblechoices:
+    print(menu)
+    choicemenu= input("What do you need. Type 1, 2, OR 3: ")
+    print("\n")
   choicemenu=int(choicemenu)
   if choicemenu==1:
     while choice not in possiblechoices:
@@ -39,6 +40,7 @@ while choice not in possiblechoices:
         password+=str(element)
       print("The generate password is: ", password, ". It has already been copied into clipboard")
       passwordused.append(password)
+      open("used_password.txt").write(password)
     elif choice==2:
       while x<numbercharacter:
         x+=1
