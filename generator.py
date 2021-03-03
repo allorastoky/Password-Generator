@@ -24,10 +24,37 @@ while True:
     print("Provide an integer value...")
     continue
 if choice==1:
-    while x<numbercharacter:
-        x+=1
-        element=random.choice(letters)
-        password+=str(element)
-
+  while x<numbercharacter:
+    x+=1
+    element=random.choice(letters)
+    password+=str(element)
+  print("The generate password is: ", password, ". It has already been copied into clipboard")
+elif choice==2:
+  while x<numbercharacter:
+    x+=1
+    chosenlist=random.randint(1, 2)
+    if chosenlist==1:
+      element=random.choice(letters)
+      password+=str(element)
+    elif chosenlist==2:
+      element=random.choice(numbers)
+      password+=str(element)
+  print("The generate password is: ", password, ". It has already been copied into clipboard")
+elif choice==3:
+  while x<numbercharacter:
+    x+=1
+    chosenlist=random.randint(1,3)
+    if chosenlist==1:
+      element=random.choice(letters)
+      password+=str(element)
+    elif chosenlist==2:
+      element=random.choice(numbers)
+      password+=str(element)
+    elif chosenlist==3:
+      element=random.choice(symbols)
+      password+=str(element)
+  print("The generate password is: ", password, ". It has already been copied into clipboard")
+  
+x=0
 print(password)
 pyperclip.copy(password)
